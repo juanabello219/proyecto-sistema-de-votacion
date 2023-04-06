@@ -1,9 +1,7 @@
-from os import system
+from os import system 
 system ("cls")
-import os 
 import random
-#entradas
-#declaramos variables 
+# este borrador lo cree  para corregir errores y que no pueda borrar nada en el archivo principal solo copiar y pegar
 RECTIFICADORES=["RNEC","#Votaciones2023"]
 VOTANTES={}
 #CORREGIMIENTOS
@@ -15,8 +13,7 @@ CANDIDATOS={1:"pepito perez",2:"juanito gonzales",3:"pedro picapiedra",4:"fernan
 #PUESTOS Y MESAS DE VOTACION
 PUESTO_URBANOS={"instituciion educativa rafael salazar":21,"institucion educativa promocion social":2}
 PUESTO_RURALES={"palenquillo":3,"puerto viejo":1,"mahoma":1,"la estacion":2,"cascajal":1,"el contento":2,"puerto mosquito":2}
-#declaramos las funciones 
-#esta funcion me permite registrar los votantes para las elecciones municipales
+
 def registro_votantes(VOTANTES,ZONAS_URBANA,ZONAS_RURALES,PUESTO_URBANOS,PUESTO_RURALES):
     VOTANTES={}
     ZONAS_RURALES={1:"palenquillo",2:"puerto viejo",3:"mahoma",4:"la estacion",5:"cascajal",6:"el contento",7:"calpulco nuevo",8:"puerto mosquito"}
@@ -91,37 +88,5 @@ def registro_votantes(VOTANTES,ZONAS_URBANA,ZONAS_RURALES,PUESTO_URBANOS,PUESTO_
                 mesa=random.randrange(1,2)
                 print(f"tu mesa de votacion es la mesa numero: {mesa}")
 
-
-def menu_registro_y_votaciones():
-    while(True):
-        print("*******BIENVENIDO AL MENU GENERAL DE VOTACION*********")
-        print(" ")
-        print("*****************************************************")
-        print("1.REGISTRO DE VOTANTES")
-        print("2.SISTEMA DE VOTACION")
-        print("******************************************************")
-        opcion=int(input("que opcion deseas:"))
-        if opcion == 1:
-            registro_votantes(VOTANTES,ZONAS_URBANA,ZONAS_RURALES,PUESTO_URBANOS,PUESTO_RURALES)
-        if opcion == 2:
-            os.system("cls")
-            print("esta opcion se encuentra en desarrollo....")
-            menu_registro_y_votaciones()
-def menu():
-    while(True):
-        print("--------BIENVENIDOS AL SISTEMA DE VOTACION--------------")
-        print("|                                                      |")                                                    
-        print("-------------------------------------------------------|")
-        print("|1.INICIE SESION..                                        |")
-        print("|------------------------------------------------------|")
-        op_cajero=int(input("elije la opcion:-->"))
-        if op_cajero == 1:
-            os.system("cls")
-            rectificador()
-
-def rectificador():
-    if input("ingrese su usuario:--->") != RECTIFICADORES[0] or input("ingrese la contraseña-->") != RECTIFICADORES[1] or print("sesion iniciada") or os.system("cls") or menu_registro_y_votaciones():
-        print("acceso denegado")or quit()
-
 if __name__=="__main__":
-    menu()
+    registro_votantes(VOTANTES,ZONAS_URBANA,ZONAS_RURALES,PUESTO_URBANOS,PUESTO_RURALES)
