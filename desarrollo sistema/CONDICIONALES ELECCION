@@ -2,6 +2,7 @@ from os import system
 system ("cls")
 import random
 # estos condicionales me permitieron que mesa se escoja aleatoriamente
+
 puesto=input("seleccione su puesto de votacion")
 if puesto == "INSTITUCION EDUCATIVA RAFAEL SALAZAR":
     mesa=random.randrange(1,21)
