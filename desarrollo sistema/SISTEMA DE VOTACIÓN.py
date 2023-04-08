@@ -107,14 +107,15 @@ def sistema_votacion(VOTANTES,CANDIDATOS):
     CANDIDATOS={1:"PEPITO PEREZ",2:"JUANITO GONZALES",3:"PEDRO PICAPIEDRA",4:"CANTINFLAS",5:"voto en blanco"}
     cedula=int(input("ingrese la cedula del votante"))
     print("los datos del votante son: ")
+    for i in VOTANTES:
+        print(i)
     while True:
-        for i in VOTANTES:
+        print("los candidatos a la alcadia municipal son: ")
+        for i in CANDIDATOS.items():
             print(i)
-        while True:
-            print("los candidatos a la alcadia municipal son: ")
-            for i in CANDIDATOS.items():
-                print(i)
-            opcion=int(input("seleccione el candidato por el cual desea votar: "))
+        opcion=int(input("seleccione el candidato por el cual desea votar: "))
+        if opcion == 1:
+            acu_candidato1=0
 
 def menu_registro_y_votaciones():
     while(True):
