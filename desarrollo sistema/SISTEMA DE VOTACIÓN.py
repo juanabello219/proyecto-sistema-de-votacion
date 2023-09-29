@@ -6,7 +6,7 @@ import time
 #entradas
 #declaramos variables 
 #variables de inicio
-RECTIFICADORES=["RNEC","elecciones2023"]
+RECTIFICADORES=["RNEC","2023#"]
 VOTANTES_GENERAL={}
 #variabes para saber cuales son los votantes que han reportado sus votos
 #CORREGIMIENTOS
@@ -230,52 +230,55 @@ def sistema_votacion(VOTANTES):
             continue
         else:
             break
-    print("los datos del votante son: ")
-    for i in VOTANTES:
-        print(i)
+    if cedula in VOTANTES:
+        print("su cedula no se encuentra registrada en la base de datos...")
+        quit
     else:
-        CANDIDATOS={1:"PEPITO PEREZ",
-                    2:"JUANITO GONZALES",
-                    3:"PEDRO PICAPIEDRA",
-                    4:"CANTINFLAS",
-                    5:"voto en blanco"}
-        print("los candidatos a la alcadia municipal son: ")
-        for i in CANDIDATOS.items():
+        print("los datos del votante son: ")
+        for i in VOTANTES:
             print(i)
-        while True:
-            try:
-                opcion=int(input("seleccione el candidato por el cual desea votar: "))
-            except:
-                print("solo debes escribir el numero que lo representa")
-                continue
+            CANDIDATOS={1:"PEPITO PEREZ",
+                        2:"JUANITO GONZALES",
+                        3:"PEDRO PICAPIEDRA",
+                        4:"CANTINFLAS",
+                        5:"voto en blanco"}
+            print("los candidatos a la alcadia municipal son: ")
+            for i in CANDIDATOS.items():
+                print(i)
+            while True:
+                try:
+                    opcion=int(input("seleccione el candidato por el cual desea votar: "))
+                except:
+                    print("solo debes escribir el numero que lo representa")
+                    continue
+                else:
+                    break
+            if opcion >5:
+                print("lo sentimos el numero seleccionado no esta dentro del rango permitido")
+                quit()
+            if opcion == 1:
+                ACU_CAN1=+1
+                print("su voto se a guardado correctamente..",ACU_CAN1)
+            elif opcion == 2:
+                ACU_CAN2+=1
+                print("voto correctamente guardado")
+                print(ACU_CAN2)
+            elif opcion == 3:
+                ACU_CAN3+=1
+                print("voto correctamente guardado")
+                print(ACU_CAN3)
+            elif opcion == 4:
+                ACU_CAN4+=1
+                print("voto correctamente guardado")
+                print(ACU_CAN4)
+            elif opcion == 5:
+                ACU_CAN5+=1
+                print("voto correctamente guardado")
+                print(ACU_CAN5)
             else:
-                break
-        if opcion >5:
-            print("lo sentimos el numero seleccionado no esta dentro del rango permitido")
-            quit()
-        if opcion == 1:
-            ACU_CAN1=+1
-            print("su voto se a guardado correctamente..")
-            print(ACU_CAN1)
-        elif opcion == 2:
-            ACU_CAN2+=1
-            print("voto correctamente guardado")
-            print(ACU_CAN2)
-        elif opcion == 3:
-            ACU_CAN3+=1
-            print("voto correctamente guardado")
-            print(ACU_CAN3)
-        elif opcion == 4:
-            ACU_CAN4+=1
-            print("voto correctamente guardado")
-            print(ACU_CAN4)
-        elif opcion == 5:
-            ACU_CAN5+=1
-            print("voto correctamente guardado")
-            print(ACU_CAN5)
-        else:
-            print("no seleccionaste ningun candidato")
-            quit()
+
+                print("no seleccionaste ningun candidato")
+                quit()
 
 def apertura_votaciones():
     abrir_votacion=False
